@@ -330,10 +330,42 @@ p:last-child {
   font-size: var(--text-lg);
 }
 
+.approach-layout {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.approach-media {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-media);
+}
+
+.approach-media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+
+.approach-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: hsl(34.29 15.56% 91.18% / 0.06);
+}
+
+.approach-copy .section-intro {
+  margin-bottom: 0;
+}
+
 .approach-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
+  gap: clamp(1.75rem, 3vw, 2.5rem);
   margin-top: 2.5rem;
 }
 
@@ -513,16 +545,20 @@ p:last-child {
     padding-bottom: 3.5rem;
   }
 
-  .approach-grid {
-    grid-template-columns: 1fr;
-  }
-
   .lede {
     max-width: none;
   }
 }
 
 @media (min-width: 900px) {
+  .approach-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .approach-media img {
+    aspect-ratio: 4 / 5;
+  }
+
   .proof .shell {
     grid-template-columns: auto 1fr;
     gap: 4rem;
